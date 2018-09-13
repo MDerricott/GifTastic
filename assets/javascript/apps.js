@@ -82,7 +82,7 @@ $(document.body).on("click", "button", function () {
             newGif.append(rowOne);
             var favoriteButton = $("<button>");
             favoriteButton.attr("gif-to-favorite", gifCountID);
-            favoriteButton.addClass("favorite-gif btn btn-dark");
+            favoriteButton.addClass("favorite-gif");
             favoriteButton.text("Favorite this GIF");
             rowThree.append(favoriteButton);
             newGif.append(rowThree);
