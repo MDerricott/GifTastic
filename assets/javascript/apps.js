@@ -22,7 +22,7 @@ $(document.body).on("click", "#add-celeb", function (event) {
     theCelebs.push(newCeleb);
     renderButtons();
 });
-// 1w0DveqYgV39GL8AP8i2kLnuRMvLVh57
+// 1w0DveqYgV39GL8AP8i2kLnuRMvLVh57  dc6zaTOxFJmzC
 $(document.body).on("click", "button", function () {
 
     for(var i=0;i<16;i++){
@@ -30,7 +30,7 @@ $(document.body).on("click", "button", function () {
     };
     var search = $(this).attr("data-name");
     var limit = $("#celeb-limit").val();
-    var xhr = $.get("https://api.giphy.com/v1/gifs/search?" + "q=" + search + "&api_key=dc6zaTOxFJmzC&limit=" + limit + "&rating=G");
+    var xhr = $.get("http://api.giphy.com/v1/gifs/search?" + "q=" + search + "&api_key=dc6zaTOxFJmzC&limit=" + limit + "&rating=G");
     xhr.then(function (response) {
         console.log("success got data", response);
         for (var i = 0; i < limit; i++) {
@@ -70,6 +70,7 @@ $(document.body).on("click", "button", function () {
                 img.attr("data-still", gifStill);
                 img.attr("class", "gif border border-dark");
                 img.attr("data-fav", gifAnimate);
+                console.log(gifAnimate);
             }
             img.attr("id", "gif-" + gifCountID);
 
@@ -80,13 +81,17 @@ $(document.body).on("click", "button", function () {
                 `);
 
             newGif.append(rowOne);
-            var favoriteButton = $("<button>");
+            var favoriteButton = $("<input>");
             favoriteButton.attr("data-gif-to-favorite", gifCountID);
             favoriteButton.addClass("favorite-gif");
             favoriteButton.text("Favorite this GIF");
+            favoriteButton.attr("data-favorited",false);
+            favoriteButton.addClass("btn btn-dark");
+            favoriteButton.attr("type","submit");
+
+            favoriteButton.attr("value","Favorite this GIF");
             rowThree.append(favoriteButton);
             newGif.append(rowThree);
-
 
 
             $(`#${i + 1}`).append(newGif);
@@ -108,25 +113,25 @@ $(document.body).on("click", ".gif", function () {
 });
 
 $(document.body).on("click", ".favorite-gif", function () {
-
+    event.preventDefault();
     console.log("clicked");
-
-    if (!$(this).attr("data-favorited")) {
-
+    console.log($(this).attr("data-favorited"));
+    if ($(this).attr("data-favorited")==="false") {
+        console.log("true");
+        window.stop();
+       console.log( $(this).attr("data-gif-to-favorite"));
         var gifNumber = $(this).attr("data-gif-to-favorite");
-
-
         var gifImage = $("#gif-" + gifNumber).attr("data-fav");
-        console.log(gifImage);
-        var favImage = $("<img>").attr("src", gifImage);
+       
 
+        var favImage = $("<img>").attr("src", gifImage);
         $("#favorite-section").prepend(favImage);
         $(this).attr("data-favorited", true);
-        window.stop();
+
     }
-    else {
-        window.stop();
-    }
+    
+    
+    
 });
 
 
