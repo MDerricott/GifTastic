@@ -1,0 +1,68 @@
+
+
+body{
+    background-image: url("../images/MOvie\ Poster.jpg");
+}
+.body{
+    background-color: rgba(255, 255, 255, 0.822); 
+    height: 100%;
+    width: 100%;
+}
+
+
+
+
+.favorite-banner{
+    background-color: rgba(31, 69, 196, 0.795);
+    padding: 10px;
+    color: white;
+}
+
+.how-many{
+    height: 200px;
+    padding: 10px;
+    background-color: #c29324cb
+}
+
+.celeb-form-section{
+    padding: 10px;
+   color: white;
+   font-size: 24px;
+}
+.col{
+    width: 420px;
+}
+.gif-area{
+    width: 420px;
+}
+
+img{
+    margin: 5px;
+}
+
+.gif-area{
+    display: block;
+}
+.tag-row, .gir-row,.fav-button-row{
+    margin-bottom: 5px;
+
+}
+
+.fav-button-row{
+    display: block;
+}
+
+h1{
+    text-align: center;
+}
+.spacing{
+    height: 50px;
+}
+
+.btn{
+    margin: 2px;
+}
+
+.celeb-form-section{
+
+}
