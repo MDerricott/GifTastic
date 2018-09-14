@@ -23,7 +23,7 @@ $(document.body).on("click", "#add-celeb", function (event) {
     renderButtons();
 });
 // 1w0DveqYgV39GL8AP8i2kLnuRMvLVh57  dc6zaTOxFJmzC
-$(document.body).on("click", "button", function () {
+$(document.body).on("click", "button.celeb", function () {
 
     for(var i=0;i<16;i++){
         $(`#${i + 1}`).empty();
@@ -81,7 +81,7 @@ $(document.body).on("click", "button", function () {
                 `);
 
             newGif.append(rowOne);
-            var favoriteButton = $("<input>");
+            var favoriteButton = $("<button>");
             favoriteButton.attr("data-gif-to-favorite", gifCountID);
             favoriteButton.addClass("favorite-gif");
             favoriteButton.text("Favorite this GIF");
@@ -112,7 +112,7 @@ $(document.body).on("click", ".gif", function () {
 
 });
 
-$(document.body).on("click", ".favorite-gif", function () {
+$(document.body).on("click", "button.favorite-gif", function () {
     event.preventDefault();
     console.log("clicked");
     console.log($(this).attr("data-favorited"));
