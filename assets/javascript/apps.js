@@ -30,7 +30,7 @@ $(document.body).on("click", "button", function () {
     };
     var search = $(this).attr("data-name");
     var limit = $("#celeb-limit").val();
-    var xhr = $.get("http://api.giphy.com/v1/gifs/search?" + "q=" + search + "&api_key=dc6zaTOxFJmzC&limit=" + limit + "&rating=G");
+    var xhr = $.get("https://api.giphy.com/v1/gifs/search?" + "q=" + search + "&api_key=dc6zaTOxFJmzC&limit=" + limit + "&rating=G");
     xhr.then(function (response) {
         console.log("success got data", response);
         for (var i = 0; i < limit; i++) {
